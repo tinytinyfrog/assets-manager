@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vip.file.mapper.FilesMapper">
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, create_by, create_time, update_by, update_time, origin_file_name,
+        file_path, file_name, file_type, file_size, file_url, is_delete
+    </sql>
+    <select id="selectFileList" resultType="com.vip.file.dto.GetFileDto">
+        select id, created_time, origin_file_name, file_name, file_type
+        from business_files
+        where is_delete = 0
+        order by created_time desc
+    </select>
+    <select id="fileIsExist" resultType="java.lang.Boolean">
+        select count(id) > 0
+        from business_files
+        where is_delete = 0 and file_name = #{fileName}
+    </select>
+
+</mapper>
