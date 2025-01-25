@@ -25,7 +25,7 @@ public class JwtUtils {
     private String secret;
 
     // 令牌有效期（默认30分钟）
-    @Value("${token.expireTime}")
+    @Value("${token.expireTime:1440}")
     private int expireTime;
 
     public String getToken(HttpServletRequest request) throws UnsupportedEncodingException {

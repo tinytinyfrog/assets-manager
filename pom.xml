@@ -127,26 +127,7 @@
             <version>1.18</version>
         </dependency>
     </dependencies>
-    <!--  多环境配置  -->
-    <profiles>
-        <profile>
-            <id>dev</id>
-            <properties>
-                <!--  命名要和application-dev.yml配置文件-后面的一致  -->
-                <profiles.active>dev</profiles.active>
-            </properties>
-            <!--  默认激活环境  -->
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-        </profile>
-        <profile>
-            <id>prod</id>
-            <properties>
-                <profiles.active>prod</profiles.active>
-            </properties>
-        </profile>
-    </profiles>
+
     <build>
         <finalName>vip-assets-manager</finalName>
         <plugins>
@@ -164,7 +145,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <!--打包忽略项-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
